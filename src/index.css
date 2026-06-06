@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 248 250 252;
+    --foreground: 15 23 42;
+
+    --card: 255 255 255;
+    --card-foreground: 15 23 42;
+
+    --popover: 255 255 255;
+    --popover-foreground: 15 23 42;
+
+    --primary: 99 102 241;
+    --primary-foreground: 255 255 255;
+
+    --secondary: 241 245 249;
+    --secondary-foreground: 15 23 42;
+
+    --muted: 241 245 249;
+    --muted-foreground: 100 116 139;
+
+    --accent: 139 92 246;
+    --accent-foreground: 255 255 255;
+
+    --destructive: 239 68 68;
+    --destructive-foreground: 255 255 255;
+
+    --border: 226 232 240;
+    --input: 226 232 240;
+    --ring: 99 102 241;
+
+    --radius: 1rem;
+  }
+
+  .dark {
+    --background: 9 9 17;
+    --foreground: 248 250 252;
+
+    --card: 16 16 28;
+    --card-foreground: 248 250 252;
+
+    --popover: 16 16 28;
+    --popover-foreground: 248 250 252;
+
+    --primary: 139 92 246;
+    --primary-foreground: 255 255 255;
+
+    --secondary: 28 28 44;
+    --secondary-foreground: 248 250 252;
+
+    --muted: 28 28 44;
+    --muted-foreground: 148 163 184;
+
+    --accent: 236 72 153;
+    --accent-foreground: 255 255 255;
+
+    --destructive: 248 113 113;
+    --destructive-foreground: 255 255 255;
+
+    --border: 38 38 58;
+    --input: 28 28 44;
+    --ring: 139 92 246;
+  }
+
+  body {
+    @apply bg-background text-foreground transition-colors duration-300 font-sans antialiased;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+}
+
+@layer utilities {
+  /* Premium Glassmorphism */
+  .glass-panel {
+    @apply bg-white/70 dark:bg-card/45 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-xl dark:shadow-2xl;
+  }
+  
+  .glass-panel-hover {
+    @apply transition-all duration-300 hover:bg-white/90 dark:hover:bg-card/60 hover:-translate-y-0.5 hover:shadow-2xl dark:hover:shadow-indigo-500/10 hover:border-indigo-500/20 dark:hover:border-indigo-500/20;
+  }
+  
+  .glass-input {
+    @apply bg-white/50 dark:bg-black/20 border border-border focus:border-primary/50 focus:ring focus:ring-primary/20 rounded-lg outline-none transition-all duration-200 text-foreground;
+  }
+
+  /* Animated Neon Text Gradient */
+  .text-gradient-purple {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500;
+  }
+
+  .text-gradient-cyan {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-cyan-500 to-teal-400;
+  }
+
+  .glow-indigo {
+    @apply shadow-[0_0_20px_rgba(99,102,241,0.15)] dark:shadow-[0_0_30px_rgba(139,92,246,0.25)];
+  }
+}
+
+/* Custom Scrollbar for a premium UI feel */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-muted/50 rounded-full hover:bg-muted/80 transition-colors duration-200;
+}
+
+/* Beautiful Animated Background Elements */
+.bg-mesh {
+  background-image: 
+    radial-gradient(at 10% 20%, rgba(99, 102, 241, 0.08) 0px, transparent 50%),
+    radial-gradient(at 90% 10%, rgba(236, 72, 153, 0.08) 0px, transparent 50%),
+    radial-gradient(at 50% 80%, rgba(139, 92, 246, 0.08) 0px, transparent 50%);
+}
+
+.dark .bg-mesh {
+  background-image: 
+    radial-gradient(at 10% 20%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+    radial-gradient(at 90% 10%, rgba(236, 72, 153, 0.12) 0px, transparent 50%),
+    radial-gradient(at 50% 80%, rgba(139, 92, 246, 0.15) 0px, transparent 50%);
+}
